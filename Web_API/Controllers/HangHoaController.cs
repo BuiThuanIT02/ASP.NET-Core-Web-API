@@ -103,27 +103,27 @@ namespace Web_API.Controllers
 
 
 
-        [HttpDelete("{id}")]
+        //[HttpDelete("{id}")]
 
-        public IActionResult Delete(string id)
-        {
-            try
-            {
-                var hanghoa = hanghoas.SingleOrDefault(x => x.MaHangHoa == Guid.Parse(id));
-                if (hanghoa == null)
-                {
-                    return NotFound();
-                }
-                //update
+        //public IActionResult Delete(string id)
+        //{
+        //    try
+        //    {
+        //        var hanghoa = hanghoas.SingleOrDefault(x => x.MaHangHoa == Guid.Parse(id));
+        //        if (hanghoa == null)
+        //        {
+        //            return NotFound();
+        //        }
+        //        //update
 
-                hanghoas.Remove(hanghoa);
-                return Ok();
-            }
-            catch
-            {
-                return BadRequest();
-            }
-        }
+        //        hanghoas.Remove(hanghoa);
+        //        return Ok();
+        //    }
+        //    catch
+        //    {
+        //        return BadRequest();
+        //    }
+        //}
 
 
 
