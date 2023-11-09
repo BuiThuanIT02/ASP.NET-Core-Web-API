@@ -109,6 +109,7 @@ namespace Web_API.Controllers
         {
             try
             {
+            // tôi mới thêm ở đây
                 var hanghoa = hanghoas.SingleOrDefault(x => x.MaHangHoa == Guid.Parse(id));
                 if (hanghoa == null)
                 {
