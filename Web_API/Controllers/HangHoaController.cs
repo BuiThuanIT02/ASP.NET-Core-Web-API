@@ -8,15 +8,15 @@ using Web_API.Models;
 
 namespace Web_API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
+    [Route("api/[controller]")] // xác định đường dẫn Url , api/[controller]: chuỗi đg dẫn Controller sẽ là tên cụ thể của controller đc gọi 
+    [ApiController]// đánh dấu xd đây là API controller, xử lý các yêu cầu HTTP và trả về dữ liệu dạng Json
     public class HangHoaController : ControllerBase
     {
         public static List<HangHoa> hanghoas = new List<HangHoa>();
         [HttpGet]
         public IActionResult GetAll()
         {
-            return Ok(hanghoas);
+            return Ok(hanghoas);// dữ liệu đc chuyển về dạng Json
 
         }
         [HttpGet("{id}")]
@@ -50,7 +50,7 @@ namespace Web_API.Controllers
         {
             var hanghoa = new HangHoa
             {
-                MaHangHoa = Guid.NewGuid(),
+                MaHangHoa = Guid.NewGuid(), // tạo ID có tính duy nh
                 TenHangHoa = hanghoaVM.TenHangHoa,
                 DonGia = hanghoaVM.DonGia
             };
@@ -85,6 +85,7 @@ namespace Web_API.Controllers
                     return BadRequest();
 
                 }
+             
                 hanghoa.TenHangHoa = hanghoaEdit.TenHangHoa;
                 hanghoa.DonGia = hanghoaEdit.DonGia;
                 return Ok();

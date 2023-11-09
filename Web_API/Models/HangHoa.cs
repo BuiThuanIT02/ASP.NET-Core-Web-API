@@ -11,12 +11,10 @@ namespace Web_API.Models
         public double DonGia { get; set; }
     }
 
-
-
-    public class HangHoa:HangHoaVM
+    public class HangHoa : HangHoaVM
     {
         public Guid MaHangHoa { get; set; }
-       
     }
+
 
 }

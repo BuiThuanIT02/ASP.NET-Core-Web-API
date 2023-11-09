@@ -1,7 +1,8 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -11,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Web_API.Data;
 
 namespace Web_API
 {
@@ -28,6 +30,16 @@ namespace Web_API
         {
 
             services.AddControllers();
+
+            // tự thêm
+            services.AddDbContext<MyDbContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("MyDB"));
+            });
+
+
+
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Web_API", Version = "v1" });
